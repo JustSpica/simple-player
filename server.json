@@ -1,0 +1,15 @@
+{
+  "musics": [
+    {
+      "id": "billie-elish-happier-than-ever",
+      "title": "happier than ever",
+      "author": "Billie Eilish",
+      "published_at": "2022-07-22 13:30:42",
+      "thumbnail": "https://i.imgur.com/WQzL6me.jpg",
+      "file": {
+        "path": "src/audio/happier.mp3",
+        "duration": 315
+      }
+    }
+  ]
+}
