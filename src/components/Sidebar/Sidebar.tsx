@@ -16,9 +16,10 @@ export function Sidebar() {
           text-white bg-zinc-800 transition-all hover:bg-zinc-700"
           >
             {link.icon}
-            <div className='translate-y-4 px-4 py-1 absolute left-[150%] 
-              bg-zinc-50 text-zinc-900 font-semibold rounded pointer-events-none opacity-0 
-              transition-all group-hover:opacity-100 group-hover:translate-y-0'
+            <div className='translate-y-4 px-4 py-1 absolute left-[150%]
+              bg-zinc-50 text-zinc-900 font-semibold rounded 
+              pointer-events-none opacity-0 transition-all z-[30]
+              group-hover:opacity-100 group-hover:translate-y-0'
             >
               {link.label}
             </div>
