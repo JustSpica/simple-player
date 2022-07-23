@@ -1,12 +1,16 @@
 import { Play } from 'phosphor-react';
+import { convertDurationToTimeString } from 'utils/convertDurationToTimeString';
 
 export interface CardProps {
   author: string;
   src: string;
   title: string;
+  duration: number;
 }
 
-export function Card({ author, src, title }: CardProps) {
+export function Card({ author, duration, src, title }: CardProps) {
+  const durationFormat = convertDurationToTimeString(duration);
+
   return(
     <div className="group w-full h-full relative rounded-2xl">
       <div className="h-full w-full absolute bg-gradient-to-r from-[#121212]
@@ -29,10 +33,15 @@ export function Card({ author, src, title }: CardProps) {
             className="group-active:scale-75 transition-transform"
           />
         </button>
-        <strong className="text-white text-2xl">
+        <strong className="text-white text-2xl capitalize">
           {title.length > 17 ? `${title.slice(0, 17)}...` : title}
         </strong>
-        <span className="text-zinc-400">{author}</span>
+        <div className="text-zinc-400 space-x-2">
+          <span>{author}</span>
+          <span className='text-sm'>
+            {durationFormat}
+          </span>
+        </div>
       </div>
     </div>
   )

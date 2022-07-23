@@ -10,6 +10,72 @@
         "path": "src/audio/happier.mp3",
         "duration": 315
       }
+    },
+    {
+      "id": "maneskin-beggin",
+      "title": "beggin",
+      "author": "Maneskin",
+      "published_at": "2022-07-23 19:30:58",
+      "thumbnail": "https://i.imgur.com/lbQ5dYp.jpg",
+      "file": {
+        "path": "src/audio/beggin.mp3",
+        "duration": 261
+      }
+    },
+    {
+      "id": "miki-matsubara-stay-with-me",
+      "title": "stay with me",
+      "author": "Miki Matsubara",
+      "published_at": "2022-03-11 08:33:12",
+      "thumbnail": "https://i.imgur.com/MzVuHNX.jpg",
+      "file": {
+        "path": "src/audio/withMe.mp3",
+        "duration": 315
+      }
+    },
+    {
+      "id": "alec-bengajim-devil-doesnt-bargain",
+      "title": "devil doesn't bargain",
+      "author": "Alec Bengajim",
+      "published_at": "2022-01-10 02:49:32",
+      "thumbnail": "https://i.imgur.com/Z6uhoXV.jpg",
+      "file": {
+        "path": "src/audio/devil.mp3",
+        "duration": 163
+      }
+    },
+    {
+      "id": "imagine-dragons-enemy",
+      "title": "enemy",
+      "author": "Imagine Dragons",
+      "published_at": "2022-07-22 21:50:42",
+      "thumbnail": "https://i.imgur.com/emWszRh.jpg",
+      "file": {
+        "path": "src/audio/enemy.mp3",
+        "duration": 213
+      }
+    },
+    {
+      "id": "aurora-warrior",
+      "title": "warrior",
+      "author": "Aurora",
+      "published_at": "2021-12-09 21:50:56",
+      "thumbnail": "https://i.imgur.com/m3kYTxm.jpg",
+      "file": {
+        "path": "src/audio/warrior.mp3",
+        "duration": 224
+      }
+    },
+    {
+      "id": "billie-elish-happier-than-ever",
+      "title": "happier than ever",
+      "author": "Billie Eilish",
+      "published_at": "2021-12-25 14:33:49",
+      "thumbnail": "https://i.imgur.com/kD2JALU.jpg",
+      "file": {
+        "path": "src/audio/somebody.mp3",
+        "duration": 244
+      }
     }
   ]
 }

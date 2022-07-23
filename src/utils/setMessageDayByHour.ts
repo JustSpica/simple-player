@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 
-export function getDayState() {
+export function setMessageDayByHour() {
   let currentTime = Number(format(Date.now(), 'H'));
 
   if(currentTime > 6 && currentTime < 12) {

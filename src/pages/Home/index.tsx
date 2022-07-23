@@ -1,9 +1,37 @@
+import { useMemo } from "react";
+
 import { Card, Sidebar, Player } from "components";
 
-import { getDayState } from 'utils/getDayState'
+import { useAxios } from "hooks";
+
+import { setMessageDayByHour } from 'utils/setMessageDayByHour'
+import { convertDurationToTimeString } from 'utils/convertDurationToTimeString';
+
+interface MusicDataResponse {
+  id: string;
+  title: string;
+  author: string;
+  published_at: string;
+  thumbnail: string;
+  file: { 
+    path: string;
+    duration: number;
+  }
+}
 
 export function Home() {
-  const { srtValue, highValue, emoji } = getDayState();
+  const { srtValue, highValue, emoji } = setMessageDayByHour();
+
+  const { data, error } = useAxios<MusicDataResponse[]>('/musics', {
+    params: {
+      _sort: 'published_at',
+      _order: 'desc',
+    }
+  });
+
+  if(data) {
+    console.log(convertDurationToTimeString(data[0].file.duration))
+  }
 
   return(
     <div className="w-full h-screen flex">
@@ -21,16 +49,14 @@ export function Home() {
                 Últimos lançamentos
               </h2>
               <div className="grid grid-cols-2 flex-1 gap-6">
-                <Card 
-                  author="Billie Eilish" 
-                  src="https://i.imgur.com/WQzL6me.jpg" 
-                  title="Happier Than Ever"
-                />
-                <Card 
-                  author="Gotye" 
-                  src="https://i.imgur.com/kD2JALU.jpg" 
-                  title="Somebody That I Used to Know"
-                />
+                {data?.slice(0, 2).map(item => (
+                  <Card 
+                    author={item.author} 
+                    title={item.title} 
+                    src={item.thumbnail}
+                    duration={item.file.duration}
+                  />
+                ))}
               </div>
             </div>
             <div></div>
