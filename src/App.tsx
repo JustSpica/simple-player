@@ -1,8 +1,12 @@
+import { PlayerProvider } from 'contexts/PlayerContext'
+
 import { Home } from './pages/Home'
 
 function App() {
   return (
-    <Home />
+    <PlayerProvider>
+      <Home />
+    </PlayerProvider>
   )
 }
 

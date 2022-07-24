@@ -2,36 +2,22 @@ import { useMemo } from "react";
 
 import { Card, Sidebar, Player } from "components";
 
+import { MusicDataProps } from 'contexts/@types/player';
+
 import { useAxios } from "hooks";
 
 import { setMessageDayByHour } from 'utils/setMessageDayByHour'
 import { convertDurationToTimeString } from 'utils/convertDurationToTimeString';
 
-interface MusicDataResponse {
-  id: string;
-  title: string;
-  author: string;
-  published_at: string;
-  thumbnail: string;
-  file: { 
-    path: string;
-    duration: number;
-  }
-}
-
 export function Home() {
   const { srtValue, highValue, emoji } = setMessageDayByHour();
 
-  const { data, error } = useAxios<MusicDataResponse[]>('/musics', {
+  const { data, error } = useAxios<MusicDataProps[]>('/musics', {
     params: {
       _sort: 'published_at',
       _order: 'desc',
     }
   });
-
-  if(data) {
-    console.log(convertDurationToTimeString(data[0].file.duration))
-  }
 
   return(
     <div className="w-full h-screen flex">
@@ -51,10 +37,7 @@ export function Home() {
               <div className="grid grid-cols-2 flex-1 gap-6">
                 {data?.slice(0, 2).map(item => (
                   <Card 
-                    author={item.author} 
-                    title={item.title} 
-                    src={item.thumbnail}
-                    duration={item.file.duration}
+                    data={item}
                   />
                 ))}
               </div>
