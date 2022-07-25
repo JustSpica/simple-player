@@ -34,9 +34,9 @@
       }
     },
     {
-      "id": "alec-bengajim-devil-doesnt-bargain",
+      "id": "alec-benjamin-devil-doesnt-bargain",
       "title": "devil doesn't bargain",
-      "author": "Alec Bengajim",
+      "author": "Alec Benjamin",
       "published_at": "2022-01-10 02:49:32",
       "thumbnail": "https://i.imgur.com/Z6uhoXV.jpg",
       "file": {
@@ -60,16 +60,16 @@
       "title": "warrior",
       "author": "Aurora",
       "published_at": "2021-12-09 21:50:56",
-      "thumbnail": "https://i.imgur.com/m3kYTxm.jpg",
+      "thumbnail": "https://i.imgur.com/hELnvsc.jpg",
       "file": {
         "path": "src/audio/warrior.mp3",
         "duration": 224
       }
     },
     {
-      "id": "billie-elish-happier-than-ever",
-      "title": "happier than ever",
-      "author": "Billie Eilish",
+      "id": "gotye-somebody-that-i-used-to-know",
+      "title": "somebody that i used to know",
+      "author": "Gotye",
       "published_at": "2021-12-25 14:33:49",
       "thumbnail": "https://i.imgur.com/kD2JALU.jpg",
       "file": {
