@@ -1,17 +1,23 @@
-import { useEffect, useRef, useState } from "react";
-import Slider from "rc-slider";
+import { useEffect } from 'react';
+import Slider from 'rc-slider';
 
-import { usePlayer } from "hooks";
+import { usePlayer } from 'hooks';
 
-import { convertDurationToTimeString } from "utils/convertDurationToTimeString";
+import { convertDurationToTimeString } from 'utils/convertDurationToTimeString';
 
-import "rc-slider/assets/index.css";
+import 'rc-slider/assets/index.css';
 
-export function PlaybackSlider() {
-  const [progress, setProgress] = useState(0);
+export interface PlaybackSliderProps {
+  audioRef: React.RefObject<HTMLAudioElement>;
+  progress: number;
+  onChangeProgress: (amount: number) => void;
+}
 
-  const audioRef = useRef<HTMLAudioElement>(null);
-
+export function PlaybackSlider({ 
+  audioRef, 
+  onChangeProgress, 
+  progress 
+}: PlaybackSliderProps) {
   const { current } = usePlayer();
 
   useEffect(() => {
@@ -24,21 +30,11 @@ export function PlaybackSlider() {
     }
   }, [current]);
 
-  function changeCurrentProgress() {
-    if (!audioRef.current) return;
-
-    audioRef.current.addEventListener("timeupdate", () => {
-      if (!audioRef.current) return;
-
-      return setProgress(Math.floor(audioRef.current.currentTime));
-    });
-  }
-
   function handleDragProgressSlider(amount: number) {
     if(!audioRef.current) return;
 
     audioRef.current.currentTime = amount;
-    setProgress(amount);
+    onChangeProgress(amount);
   }
 
   return (
@@ -65,15 +61,6 @@ export function PlaybackSlider() {
       <span className="text-sm text-center">
         {convertDurationToTimeString(current.file.duration)}
       </span>
-
-      {current.id && (
-        <audio
-          ref={audioRef}
-          src={current.file.path}
-          autoPlay
-          onLoadedMetadata={changeCurrentProgress}
-        />
-      )}
     </div>
   );
 }
